@@ -86,18 +86,35 @@ footer {
   text-align: center;
   padding: 30px;
 }
+#hero {
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 25s infinite;
+}
 
+@keyframes slideShow {
+  0%   { background-image: url("images/hero1.jpg"); }
+  20%  { background-image: url("images/hero2.jpg"); }
+  40%  { background-image: url("images/hero3.jpg"); }
+  60%  { background-image: url("images/hero4.jpg"); }
+  80%  { background-image: url("images/hero5.jpg"); }
+  100% { background-image: url("images/hero1.jpg"); }
+}
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Kavinkumar S</h1>
-  <p>Strategy | Finance | Leadership | National Case Winner</p>
-  <button onclick="document.getElementById('about').scrollIntoView();">
-    Explore ↓
-  </button>
+<header id="hero">
+  <div class="overlay">
+    <h1>Kavinkumar S</h1>
+    <p>Strategy | Finance | Leadership | National Case Winner</p>
+    <button onclick="document.getElementById('about').scrollIntoView();">
+      Explore ↓
+    </button>
+  </div>
 </header>
 
 <section id="about" class="section">
