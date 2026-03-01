@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kavinkumar S</title>
 
+<style>
+
 :root {
   --bg-main: #0b001a;
   --bg-section: #120026;
   --card-bg: #1a0033;
   --accent: #a855f7;
-  --glow: rgba(168,85,247,0.5);
+  --glow: rgba(168,85,247,0.6);
 }
 
 html {
@@ -19,12 +21,12 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle at 50% 20%, #1f003d, #0b001a 60%);
   color: white;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 #hero {
   height: 100vh;
@@ -37,7 +39,7 @@ body {
 .overlay {
   height: 100%;
   width: 100%;
-  background: rgba(10,0,20,0.7);
+  background: rgba(10,0,20,0.75);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,15 +50,14 @@ body {
 #hero h1 {
   font-size: 60px;
   margin: 0;
-  color: white;
-  text-shadow: 0 0 25px var(--accent);
+  text-shadow: 0 0 30px var(--accent);
 }
 
 #dynamic-text {
   font-size: 22px;
   margin-top: 15px;
   color: var(--accent);
-  text-shadow: 0 0 10px var(--accent);
+  text-shadow: 0 0 15px var(--accent);
 }
 
 button {
@@ -73,7 +74,7 @@ button {
 button:hover {
   background: var(--accent);
   color: black;
-  box-shadow: 0 0 20px var(--glow);
+  box-shadow: 0 0 25px var(--glow);
 }
 
 /* SECTIONS */
@@ -97,7 +98,7 @@ button:hover {
 h2 {
   color: var(--accent);
   margin-bottom: 40px;
-  text-shadow: 0 0 10px var(--accent);
+  text-shadow: 0 0 12px var(--accent);
 }
 
 /* CARDS */
@@ -117,7 +118,7 @@ h2 {
   max-width: 350px;
   border-radius: 20px;
   border: 1px solid rgba(168,85,247,0.2);
-  box-shadow: 0 0 30px rgba(168,85,247,0.1);
+  box-shadow: 0 0 30px rgba(168,85,247,0.15);
   transition: 0.4s ease;
 }
 
@@ -182,7 +183,7 @@ footer {
   padding: 40px;
 }
 
-/* SLIDESHOW */
+/* HERO SLIDESHOW */
 
 @keyframes slideShow {
   0%   { background-image: url("images/photo1.jpeg"); }
@@ -192,6 +193,8 @@ footer {
   80%  { background-image: url("images/photo5.jpeg"); }
   100% { background-image: url("images/photo1.jpeg"); }
 }
+
+</style>
 </head>
 
 <body>
@@ -219,17 +222,18 @@ footer {
 <section id="about" class="section">
   <h2>About</h2>
   <p>
-    Creative strategic thinker with experience in Private Banking, Key Account Management,
-    and Financial Markets. I combine structured analysis with narrative framing to
-    drive meaningful impact.
+    Creative strategic thinker with experience in Private Banking,
+    Key Account Management, and Financial Markets.
+    I combine structured analysis with narrative framing to create measurable impact.
   </p>
 </section>
 
 <section class="section">
   <h2>Strategic Lens</h2>
   <p>
-    I approach challenges through structured thinking, creative framing, and decisive execution.
-    Strategy, for me, is storytelling backed by numbers.
+    Strategy is storytelling backed by numbers.
+    I approach challenges with structured thinking, creative framing,
+    and disciplined execution.
   </p>
 </section>
 
@@ -271,11 +275,11 @@ footer {
     </div>
     <div class="card">
       <h3>Storytelling</h3>
-      <p>A natural storyteller who believes clarity and narrative shape influence.</p>
+      <p>A natural storyteller who believes clarity shapes influence.</p>
     </div>
     <div class="card">
       <h3>Cultural Depth</h3>
-      <p>Loves authentic South Indian cuisine and meaningful conversations with friends.</p>
+      <p>Passionate about authentic South Indian cuisine and meaningful friendships.</p>
     </div>
   </div>
 </section>
