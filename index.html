@@ -36,7 +36,6 @@ body {
   height: 100%;
   width: 100%;
   background: rgba(0,0,0,0.7);
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,12 +46,13 @@ body {
 #hero h1 {
   font-size: 60px;
   margin: 0;
+  text-shadow: 0 0 20px var(--accent);
 }
 
-#hero p {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #cccccc;
+#dynamic-text {
+  font-size: 22px;
+  margin-top: 15px;
+  color: var(--accent);
 }
 
 button {
@@ -71,10 +71,18 @@ button:hover {
   color: black;
 }
 
-/* SECTIONS */
+/* SECTION ANIMATION */
 
 .section {
   padding: 80px 10%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section:nth-child(even) {
@@ -83,19 +91,35 @@ button:hover {
 
 h2 {
   color: var(--accent);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  display: block;
+  margin-top: 8px;
 }
 
 /* CARDS */
+
 .cards {
   display: flex;
+  justify-content: center;
+  align-items: stretch;
   gap: 30px;
   flex-wrap: wrap;
 }
 
 .card {
-  background: #1f1f1f;   /* lighter than background */
+  background: #1f1f1f;
   padding: 25px;
-  width: 280px;
+  flex: 1 1 300px;
+  max-width: 350px;
   border-radius: 15px;
   border: 1px solid #2a2a2a;
   box-shadow: 0 8px 30px rgba(0, 191, 255, 0.08);
@@ -107,6 +131,14 @@ h2 {
   border: 1px solid var(--accent);
   box-shadow: 0 10px 35px rgba(0, 191, 255, 0.35);
   background: #262626;
+}
+
+.card h3 {
+  color: var(--accent);
+}
+
+.card p {
+  color: #d0d0d0;
 }
 
 /* SKILLS */
@@ -154,7 +186,7 @@ footer {
   padding: 40px;
 }
 
-/* 5 IMAGE BACKGROUND CAROUSEL */
+/* HERO BACKGROUND SLIDES */
 
 @keyframes slideShow {
   0%   { background-image: url("images/photo1.jpeg"); }
@@ -173,7 +205,7 @@ footer {
 <header id="hero">
   <div class="overlay">
     <h1>Kavinkumar S</h1>
-    <p>Strategy | Finance | Leadership | National Case Winner</p>
+    <p id="dynamic-text"></p>
 
     <button onclick="document.getElementById('about').scrollIntoView();">
       Explore ↓
@@ -187,42 +219,40 @@ footer {
        border-radius:25px;">
        Download Resume
     </a>
-
   </div>
 </header>
 
 <section id="about" class="section">
   <h2>About</h2>
   <p>
-    MBA candidate with experience in Private Banking, Key Account Management and Financial Markets.
-    Passionate about strategic thinking, financial modeling and high-performance execution.
+    Creative strategic thinker with experience in Private Banking, Key Account Management,
+    and Financial Markets. I combine structured analysis with narrative framing to
+    drive meaningful impact.
   </p>
 </section>
 
 <section class="section">
-  <h2>Education</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>IIM Amritsar</h3>
-      <p>MBA (2024–2026)</p>
-    </div>
-    <div class="card">
-      <h3>SRCC, Delhi University</h3>
-      <p>B.Com (Hons.)</p>
-    </div>
-  </div>
+  <h2>Strategic Lens</h2>
+  <p>
+    I approach challenges through structured thinking, creative framing, and decisive execution.
+    Strategy, for me, is storytelling backed by numbers.
+  </p>
 </section>
 
 <section class="section">
-  <h2>Experience</h2>
+  <h2>Impact Snapshot</h2>
   <div class="cards">
     <div class="card">
-      <h3>Zomato</h3>
-      <p>Managed ₹40L portfolio across 120+ restaurants.</p>
+      <h3>₹40L+</h3>
+      <p>Business Portfolio Managed</p>
     </div>
     <div class="card">
-      <h3>ICICI Bank</h3>
-      <p>Mapped 250+ UHNW businesses & assisted in IPO discussions.</p>
+      <h3>250+</h3>
+      <p>UHNW Businesses Analyzed</p>
+    </div>
+    <div class="card">
+      <h3>10+</h3>
+      <p>National Case Wins</p>
     </div>
   </div>
 </section>
@@ -239,41 +269,19 @@ footer {
 </section>
 
 <section class="section">
-  <h2>Case Competition Wins</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>National Winner</h3>
-      <p>Parikshit’25 – TAPMI</p>
-    </div>
-    <div class="card">
-      <h3>National Winner</h3>
-      <p>Finlatics Rebranding Case</p>
-    </div>
-    <div class="card">
-      <h3>National Runners-Up</h3>
-      <p>Circus Maximus – XLRI</p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Beyond the Resume</h2>
+  <h2>Creative & Personal</h2>
   <div class="cards">
     <div class="card">
       <h3>Adventure & Travel</h3>
-      <p>Loves adventure sports and exploring new cultures.</p>
+      <p>Drawn to exploration and new perspectives through travel and adventure sports.</p>
     </div>
     <div class="card">
-      <h3>Storytelling & Creativity</h3>
-      <p>A natural storyteller with strong narrative thinking.</p>
+      <h3>Storytelling</h3>
+      <p>A natural storyteller who believes clarity and narrative shape influence.</p>
     </div>
     <div class="card">
-      <h3>Food & Culture</h3>
-      <p>Passionate about authentic South Indian cuisine & meaningful friendships.</p>
-    </div>
-    <div class="card">
-      <h3>Work Ethic</h3>
-      <p>Disciplined, resilient and committed to excellence.</p>
+      <h3>Cultural Depth</h3>
+      <p>Loves authentic South Indian cuisine and meaningful conversations with friends.</p>
     </div>
   </div>
 </section>
@@ -290,6 +298,54 @@ footer {
 <footer>
   <p>Contact: kavin1507kumar@gmail.com</p>
 </footer>
+
+<script>
+
+/* TYPEWRITER EFFECT */
+
+const words = ["Strategist.", "Storyteller.", "Explorer.", "Builder."];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+const element = document.getElementById("dynamic-text");
+
+function typeEffect() {
+  currentWord = words[i];
+
+  if (!isDeleting) {
+    element.textContent = currentWord.substring(0, j++);
+    if (j > currentWord.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000);
+      return;
+    }
+  } else {
+    element.textContent = currentWord.substring(0, j--);
+    if (j < 0) {
+      isDeleting = false;
+      i = (i + 1) % words.length;
+    }
+  }
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+typeEffect();
+
+/* SCROLL REVEAL */
+
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      section.classList.add('show');
+    }
+  });
+});
+
+</script>
 
 </body>
 </html>
