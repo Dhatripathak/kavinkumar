@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kavinkumar S</title>
 
-<style>
-
 :root {
-  --accent: #00BFFF;
+  --bg-main: #0b001a;
+  --bg-section: #120026;
+  --card-bg: #1a0033;
+  --accent: #a855f7;
+  --glow: rgba(168,85,247,0.5);
 }
 
 html {
@@ -18,11 +20,11 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #000;
-  color: #ffffff;
+  background: radial-gradient(circle at 50% 20%, #1f003d, #0b001a 60%);
+  color: white;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 #hero {
   height: 100vh;
@@ -35,7 +37,7 @@ body {
 .overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(10,0,20,0.7);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,13 +48,15 @@ body {
 #hero h1 {
   font-size: 60px;
   margin: 0;
-  text-shadow: 0 0 20px var(--accent);
+  color: white;
+  text-shadow: 0 0 25px var(--accent);
 }
 
 #dynamic-text {
   font-size: 22px;
   margin-top: 15px;
   color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
 }
 
 button {
@@ -69,9 +73,10 @@ button {
 button:hover {
   background: var(--accent);
   color: black;
+  box-shadow: 0 0 20px var(--glow);
 }
 
-/* SECTION ANIMATION */
+/* SECTIONS */
 
 .section {
   padding: 80px 10%;
@@ -86,23 +91,13 @@ button:hover {
 }
 
 .section:nth-child(even) {
-  background: #0d0d0d;
+  background: var(--bg-section);
 }
 
 h2 {
   color: var(--accent);
-  position: relative;
-  display: inline-block;
   margin-bottom: 40px;
-}
-
-h2::after {
-  content: "";
-  width: 50px;
-  height: 3px;
-  background: var(--accent);
-  display: block;
-  margin-top: 8px;
+  text-shadow: 0 0 10px var(--accent);
 }
 
 /* CARDS */
@@ -116,21 +111,20 @@ h2::after {
 }
 
 .card {
-  background: #1f1f1f;
+  background: var(--card-bg);
   padding: 25px;
   flex: 1 1 300px;
   max-width: 350px;
-  border-radius: 15px;
-  border: 1px solid #2a2a2a;
-  box-shadow: 0 8px 30px rgba(0, 191, 255, 0.08);
-  transition: 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid rgba(168,85,247,0.2);
+  box-shadow: 0 0 30px rgba(168,85,247,0.1);
+  transition: 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   border: 1px solid var(--accent);
-  box-shadow: 0 10px 35px rgba(0, 191, 255, 0.35);
-  background: #262626;
+  box-shadow: 0 0 35px var(--glow);
 }
 
 .card h3 {
@@ -138,7 +132,7 @@ h2::after {
 }
 
 .card p {
-  color: #d0d0d0;
+  color: #ddd;
 }
 
 /* SKILLS */
@@ -156,6 +150,7 @@ h2::after {
 .skill-badge:hover {
   background: var(--accent);
   color: black;
+  box-shadow: 0 0 15px var(--glow);
 }
 
 /* GALLERY */
@@ -168,25 +163,26 @@ h2::after {
 
 .gallery img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 20px;
   filter: brightness(85%);
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .gallery img:hover {
   filter: brightness(100%);
+  box-shadow: 0 0 30px var(--glow);
 }
 
 /* FOOTER */
 
 footer {
-  background: #000;
-  color: #888;
+  background: #080015;
+  color: #aaa;
   text-align: center;
   padding: 40px;
 }
 
-/* HERO BACKGROUND SLIDES */
+/* SLIDESHOW */
 
 @keyframes slideShow {
   0%   { background-image: url("images/photo1.jpeg"); }
@@ -196,8 +192,6 @@ footer {
   80%  { background-image: url("images/photo5.jpeg"); }
   100% { background-image: url("images/photo1.jpeg"); }
 }
-
-</style>
 </head>
 
 <body>
