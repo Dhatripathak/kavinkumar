@@ -6,6 +6,11 @@
 <title>Kavinkumar S</title>
 
 <style>
+
+:root {
+  --accent: #00BFFF;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,13 +18,24 @@ html {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #ffffff;
-  color: #111;
+  background: #000;
+  color: #ffffff;
 }
 
-header {
+/* HERO SECTION */
+
+#hero {
   height: 100vh;
-  background: #111;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 25s infinite;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
   color: white;
   display: flex;
   flex-direction: column;
@@ -28,27 +44,48 @@ header {
   text-align: center;
 }
 
-header h1 {
+#hero h1 {
   font-size: 60px;
   margin: 0;
 }
 
-header p {
+#hero p {
   font-size: 20px;
   margin-top: 10px;
+  color: #cccccc;
 }
 
 button {
   margin-top: 25px;
   padding: 12px 30px;
-  border: none;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
   border-radius: 30px;
   cursor: pointer;
+  transition: 0.3s;
 }
+
+button:hover {
+  background: var(--accent);
+  color: black;
+}
+
+/* SECTIONS */
 
 .section {
   padding: 80px 10%;
 }
+
+.section:nth-child(even) {
+  background: #0d0d0d;
+}
+
+h2 {
+  color: var(--accent);
+}
+
+/* CARDS */
 
 .cards {
   display: flex;
@@ -57,17 +94,38 @@ button {
 }
 
 .card {
-  background: white;
+  background: #111;
   padding: 25px;
   width: 280px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0,191,255,0.1);
   transition: 0.3s;
 }
 
 .card:hover {
   transform: translateY(-8px);
+  background: #1a1a1a;
+  box-shadow: 0 8px 25px rgba(0,191,255,0.3);
 }
+
+/* SKILLS */
+
+.skill-badge {
+  border: 1px solid var(--accent);
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin: 5px;
+  display: inline-block;
+  color: var(--accent);
+  transition: 0.3s;
+}
+
+.skill-badge:hover {
+  background: var(--accent);
+  color: black;
+}
+
+/* GALLERY */
 
 .gallery {
   display: grid;
@@ -78,21 +136,24 @@ button {
 .gallery img {
   width: 100%;
   border-radius: 15px;
+  filter: brightness(85%);
+  transition: 0.3s;
 }
 
+.gallery img:hover {
+  filter: brightness(100%);
+}
+
+/* FOOTER */
+
 footer {
-  background: #111;
-  color: white;
+  background: #000;
+  color: #888;
   text-align: center;
-  padding: 30px;
+  padding: 40px;
 }
-#hero {
-  height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  animation: slideShow 25s infinite;
-}
+
+/* 5 IMAGE BACKGROUND CAROUSEL */
 
 @keyframes slideShow {
   0%   { background-image: url("images/photo1.jpeg"); }
@@ -102,6 +163,7 @@ footer {
   80%  { background-image: url("images/photo5.jpeg"); }
   100% { background-image: url("images/photo1.jpeg"); }
 }
+
 </style>
 </head>
 
@@ -111,103 +173,116 @@ footer {
   <div class="overlay">
     <h1>Kavinkumar S</h1>
     <p>Strategy | Finance | Leadership | National Case Winner</p>
+
     <button onclick="document.getElementById('about').scrollIntoView();">
       Explore ↓
     </button>
+
+    <a href="resume.pdf" target="_blank"
+       style="margin-top:15px; padding:10px 25px;
+       border:1px solid var(--accent);
+       color:var(--accent);
+       text-decoration:none;
+       border-radius:25px;">
+       Download Resume
+    </a>
+
   </div>
 </header>
 
 <section id="about" class="section">
-  <h2>About Me</h2>
+  <h2>About</h2>
   <p>
-  MBA candidate at IIM Amritsar with experience in Private Banking, Key Account Management and Financial Markets. Passionate about data-driven strategy and impact-focused leadership.
+    MBA candidate with experience in Private Banking, Key Account Management and Financial Markets.
+    Passionate about strategic thinking, financial modeling and high-performance execution.
   </p>
 </section>
-<section class="section" style="background:#f5f5f5;">
+
+<section class="section">
   <h2>Education</h2>
-
   <div class="cards">
-
     <div class="card">
       <h3>IIM Amritsar</h3>
       <p>MBA (2024–2026)</p>
-      <p><strong>CGPA: 92.3%</strong></p>
     </div>
-
     <div class="card">
       <h3>SRCC, Delhi University</h3>
       <p>B.Com (Hons.)</p>
-      <p><strong>89.19%</strong></p>
     </div>
-
   </div>
 </section>
+
+<section class="section">
+  <h2>Experience</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Zomato</h3>
+      <p>Managed ₹40L portfolio across 120+ restaurants.</p>
+    </div>
+    <div class="card">
+      <h3>ICICI Bank</h3>
+      <p>Mapped 250+ UHNW businesses & assisted in IPO discussions.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <h2>Skills</h2>
-
-  <div style="display:flex; flex-wrap:wrap; gap:15px;">
-
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">Advanced Excel</span>
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">Financial Modeling</span>
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">SPSS</span>
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">Python</span>
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">KNIME</span>
-    <span style="background:#111; color:white; padding:10px 20px; border-radius:25px;">Google Analytics</span>
-
+  <div>
+    <span class="skill-badge">Advanced Excel</span>
+    <span class="skill-badge">Financial Modeling</span>
+    <span class="skill-badge">SPSS</span>
+    <span class="skill-badge">Python</span>
+    <span class="skill-badge">KNIME</span>
   </div>
 </section>
 
-<section class="section" style="background:#f5f5f5;">
+<section class="section">
   <h2>Case Competition Wins</h2>
-
   <div class="cards">
-
     <div class="card">
       <h3>National Winner</h3>
       <p>Parikshit’25 – TAPMI</p>
-      <p>590+ Registrations</p>
     </div>
-
     <div class="card">
       <h3>National Winner</h3>
       <p>Finlatics Rebranding Case</p>
-      <p>IIM Amritsar</p>
     </div>
-
     <div class="card">
       <h3>National Runners-Up</h3>
       <p>Circus Maximus – XLRI</p>
-      <p>616+ Registrations</p>
     </div>
-
-  </div>
-</section>  
-  
-<section class="section" style="background:#f5f5f5;">
-  <h2>Experience</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Zomato</h3>
-      <p>Managed ₹40L portfolio across 120+ restaurants. Led 50+ client meetings per month.</p>
-    </div>
-
-    <div class="card">
-      <h3>ICICI Bank</h3>
-      <p>Mapped 250+ UHNW businesses and supported IPO & stake-sale discussions.</p>
-    </div>
-
   </div>
 </section>
 
 <section class="section">
-  <h2>Leadership & Moments</h2>
+  <h2>Beyond the Resume</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Adventure & Travel</h3>
+      <p>Loves adventure sports and exploring new cultures.</p>
+    </div>
+    <div class="card">
+      <h3>Storytelling & Creativity</h3>
+      <p>A natural storyteller with strong narrative thinking.</p>
+    </div>
+    <div class="card">
+      <h3>Food & Culture</h3>
+      <p>Passionate about authentic South Indian cuisine & meaningful friendships.</p>
+    </div>
+    <div class="card">
+      <h3>Work Ethic</h3>
+      <p>Disciplined, resilient and committed to excellence.</p>
+    </div>
+  </div>
+</section>
 
+<section class="section">
+  <h2>Gallery</h2>
   <div class="gallery">
-    <img src="photo1.jpeg">
-    <img src="photo2.jpeg">
-    <img src="photo3.jpeg">
+    <img src="images/photo1.jpeg">
+    <img src="images/photo2.jpeg">
+    <img src="images/photo3.jpeg">
   </div>
 </section>
 
