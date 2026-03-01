@@ -29,12 +29,26 @@ body {
 #hero {
   height: 100vh;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  animation: slideShow 25s infinite;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
 }
 
 .overlay {
+  position: relative;
+  z-index: 2;
   height: 100%;
   width: 100%;
   background: rgba(8,0,18,0.75);
@@ -144,6 +158,27 @@ h2 {
   line-height: 1.6;
 }
 
+/* GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 18px;
+  transition: 0.4s ease;
+  filter: brightness(90%);
+}
+
+.gallery img:hover {
+  transform: scale(1.04);
+  filter: brightness(100%);
+  box-shadow: 0 10px 30px rgba(179,136,255,0.2);
+}
+
 /* SECRET */
 
 .secret-container {
@@ -166,35 +201,6 @@ h2 {
   box-shadow: 0 15px 40px rgba(179,136,255,0.3);
 }
 
-/* GALLERY */
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 20px;
-  transition: 0.4s;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-}
-
-/* SLIDESHOW */
-
-@keyframes slideShow {
-  0%   { background-image: url("images/photo1.jpeg"); }
-  20%  { background-image: url("images/photo2.jpeg"); }
-  40%  { background-image: url("images/photo3.jpeg"); }
-  60%  { background-image: url("images/photo4.jpeg"); }
-  80%  { background-image: url("images/photo5.jpeg"); }
-  100% { background-image: url("images/photo1.jpeg"); }
-}
-
 footer {
   text-align: center;
   padding: 50px;
@@ -207,6 +213,14 @@ footer {
 <body>
 
 <header id="hero">
+
+  <!-- Smooth Fade Slides -->
+  <div class="hero-slide active" style="background-image:url('images/photo1.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('images/photo2.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('images/photo3.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('images/photo4.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('images/photo5.jpeg')"></div>
+
   <div class="overlay">
     <h1>Kavinkumar S</h1>
     <p id="dynamic-text"></p>
@@ -218,36 +232,22 @@ footer {
 
 <section id="about" class="section">
   <h2>About</h2>
-  <p>
-    Creative strategic thinker blending structured finance, leadership execution and narrative-driven impact.
-  </p>
+  <p>Creative strategic thinker blending finance, leadership and narrative-driven impact.</p>
 </section>
 
 <section class="section">
   <h2>Education</h2>
   <div class="cards">
-    <div class="card">
-      <h3>IIM Amritsar</h3>
-      <p>MBA (2024–2026)</p>
-    </div>
-    <div class="card">
-      <h3>SRCC, Delhi University</h3>
-      <p>B.Com (Hons.)</p>
-    </div>
+    <div class="card"><h3>IIM Amritsar</h3><p>MBA (2024–2026)</p></div>
+    <div class="card"><h3>SRCC</h3><p>B.Com (Hons.)</p></div>
   </div>
 </section>
 
 <section class="section">
   <h2>Experience</h2>
   <div class="cards">
-    <div class="card">
-      <h3>Zomato – Key Accounts Manager</h3>
-      <p>Managed ₹40L portfolio across 120+ restaurants. Led growth initiatives.</p>
-    </div>
-    <div class="card">
-      <h3>ICICI Bank – Private Banking Intern</h3>
-      <p>Mapped 250+ UHNW businesses and supported IPO discussions.</p>
-    </div>
+    <div class="card"><h3>Zomato</h3><p>Managed ₹40L portfolio across 120+ restaurants.</p></div>
+    <div class="card"><h3>ICICI Bank</h3><p>Mapped 250+ UHNW businesses.</p></div>
   </div>
 </section>
 
@@ -256,25 +256,25 @@ footer {
   <div class="cards">
     <div class="card"><h3>₹40L+</h3><p>Portfolio Managed</p></div>
     <div class="card"><h3>250+</h3><p>Businesses Analyzed</p></div>
-    <div class="card"><h3>10+</h3><p>National Case Wins</p></div>
+    <div class="card"><h3>10+</h3><p>National Wins</p></div>
   </div>
 </section>
 
 <section class="section">
   <h2>Skills</h2>
   <div class="cards">
-    <div class="card"><h3>Finance</h3><p>Financial Modeling, Valuation, DCF</p></div>
-    <div class="card"><h3>Analytics</h3><p>Excel, SPSS, Python, KNIME</p></div>
-    <div class="card"><h3>Strategy</h3><p>Market Mapping, Growth Strategy</p></div>
+    <div class="card"><h3>Finance</h3><p>Modeling, Valuation</p></div>
+    <div class="card"><h3>Analytics</h3><p>Excel, Python, SPSS</p></div>
+    <div class="card"><h3>Strategy</h3><p>Growth & Market Mapping</p></div>
   </div>
 </section>
 
 <section class="section">
   <h2>Beyond the Resume</h2>
   <div class="cards">
-    <div class="card"><h3>Adventure & Travel</h3><p>Explorer mindset shaped by travel and adventure sports.</p></div>
-    <div class="card"><h3>Storytelling</h3><p>Believes strategy is storytelling backed by clarity.</p></div>
-    <div class="card"><h3>Cultural Depth</h3><p>Loves authentic South Indian cuisine & meaningful friendships.</p></div>
+    <div class="card"><h3>Adventure</h3><p>Explorer mindset shaped by travel.</p></div>
+    <div class="card"><h3>Storytelling</h3><p>Strategy through narrative clarity.</p></div>
+    <div class="card"><h3>Cultural Depth</h3><p>Authentic South Indian cuisine & friendships.</p></div>
   </div>
 </section>
 
@@ -284,11 +284,21 @@ footer {
     <img src="images/photo1.jpeg">
     <img src="images/photo2.jpeg">
     <img src="images/photo3.jpeg">
+    <img src="images/photo4.jpeg">
+    <img src="images/photo5.jpeg">
+    <img src="images/photo6.jpeg">
+    <img src="images/photo7.jpeg">
+    <img src="images/photo8.jpeg">
+    <img src="images/photo9.jpeg">
+    <img src="images/photo10.jpeg">
+    <img src="images/photo11.jpeg">
+    <img src="images/photo12.jpeg">
+    <img src="images/photo13.jpeg">
+    <img src="images/photo14.jpeg">
   </div>
 </section>
 
 <section class="section">
-  <h2>🔐 Private Access</h2>
   <div class="secret-container">
     <input type="password" id="passwordInput" placeholder="Enter Access Code">
     <button onclick="checkPassword()">Unlock</button>
@@ -302,6 +312,17 @@ footer {
 
 <script>
 
+/* Smooth Hero Fade */
+let slides = document.querySelectorAll(".hero-slide");
+let current = 0;
+
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 5000);
+
+/* Typewriter */
 const words = ["Strategist.", "Storyteller.", "Explorer.", "Builder."];
 let i = 0, j = 0, currentWord = "", isDeleting = false;
 const element = document.getElementById("dynamic-text");
@@ -326,6 +347,7 @@ function typeEffect() {
 }
 typeEffect();
 
+/* Scroll Reveal */
 const sections = document.querySelectorAll('.section');
 window.addEventListener('scroll', () => {
   sections.forEach(section => {
@@ -336,6 +358,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
+/* Password */
 function checkPassword() {
   if (document.getElementById("passwordInput").value === "Dhatri") {
     document.getElementById("secretImage").style.display = "block";
