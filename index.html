@@ -87,25 +87,21 @@ h2 {
 
 /* CARDS */
 
-.cards {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
 .card {
-  background: #111;
+  background: #1f1f1f;   /* lighter than background */
   padding: 25px;
   width: 280px;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,191,255,0.1);
-  transition: 0.3s;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 8px 30px rgba(0, 191, 255, 0.08);
+  transition: 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  background: #1a1a1a;
-  box-shadow: 0 8px 25px rgba(0,191,255,0.3);
+  border: 1px solid var(--accent);
+  box-shadow: 0 10px 35px rgba(0, 191, 255, 0.35);
+  background: #262626;
 }
 
 /* SKILLS */
